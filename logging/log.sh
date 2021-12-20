@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-source "containers/map.sh"
-source "logging/color.sh"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+source "${SCRIPT_DIR}/../containers/map.sh"
+source "${SCRIPT_DIR}/../logging/color.sh"
 
 declare -A levels=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
 declare -A colors=([DEBUG]=blue [INFO]=green [WARN]=yellow [ERROR]=red)
