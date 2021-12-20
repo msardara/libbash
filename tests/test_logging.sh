@@ -5,21 +5,21 @@ source "logging/log.sh"
 
 # Try to log something
 function do_log() {
-    info "Hello"
-    warning "This"
-    error "is"
-    debug "the"
-    error "log"
-    warning "testing"
-    info "!!!!!!"
+    logging::log::info "Hello"
+    logging::log::warning "This"
+    logging::log::error "is"
+    logging::log::debug "the"
+    logging::log::error "log"
+    logging::log::warning "testing"
+    logging::log::info "!!!!!!"
 }
 
 # Set log level
-log_level INFO
+logging::log::log_level INFO
 do_log
-log_level DEBUG
+logging::log::log_level DEBUG
 do_log
-log_level ERROR
+logging::log::log_level ERROR
 do_log
-log_level WARN
+logging::log::log_level WARN
 do_log

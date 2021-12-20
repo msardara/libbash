@@ -14,58 +14,58 @@ declare -a magenta=("\033[35m" "\033[39m")
 declare -a red=("\033[31m" "\033[39m")
 declare -a yellow=("\033[33m" "\033[39m")
 
-color_wrap() {
+function logging::color::wrap() {
     echo -en "$(eval "echo \${${1:-}[0]}")" "${@:2}" "$(eval "echo \${${1:-}[1]}")"
 }
 
-black() {
-    color_wrap black "${@}"
+function logging::color::black() {
+    logging::color::wrap black "${@}"
 }
 
-red() {
-    color_wrap red "${@}"
+function logging::color::red() {
+    logging::color::wrap red "${@}"
 }
 
-green() {
-    color_wrap green "${@}"
+function logging::color::green() {
+    logging::color::wrap green "${@}"
 }
 
-yellow() {
-    color_wrap yellow "${@}"
+function logging::color::yellow() {
+    logging::color::wrap yellow "${@}"
 }
 
-blue() {
-    color_wrap blue "${@}"
+function logging::color::blue() {
+    logging::color::wrap blue "${@}"
 }
 
-magenta() {
-    color_wrap magenta "${@}"
+function logging::color::magenta() {
+    logging::color::wrap magenta "${@}"
 }
 
-cyan() {
-    color_wrap cyan "${@}"
+function logging::color::cyan() {
+    logging::color::wrap cyan "${@}"
 }
 
-white() {
-    color_wrap white "${@}"
+function logging::color::white() {
+    logging::color::wrap white "${@}"
 }
 
-grey() {
-    color_wrap grey "${@}"
+function logging::color::grey() {
+    logging::color::wrap grey "${@}"
 }
 
-bold() {
-    color_wrap bold "${@}"
+function logging::color::bold() {
+    logging::color::wrap bold "${@}"
 }
 
-italic() {
-    color_wrap italic "${@}"
+function logging::color::italic() {
+    logging::color::wrap italic "${@}"
 }
 
-underline() {
-    color_wrap underline "${@}"
+function logging::color::underline() {
+    logging::color::wrap underline "${@}"
 }
 
-inverse() {
-    color_wrap inverse "${@}"
+function logging::color::inverse() {
+    logging::color::wrap inverse "${@}"
 }

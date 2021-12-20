@@ -9,39 +9,39 @@ declare -A levels=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
 declare -A colors=([DEBUG]=blue [INFO]=green [WARN]=yellow [ERROR]=red)
 logging_level="INFO"
 
-function log_level() {
+function logging::log::log_level() {
     local level=${1}
 
     # check if level exists
-    if ! map_contains_key "levels" "${level}"; then
+    if ! containers::map::contains_key "levels" "${level}"; then
         return 1
     fi
 
     logging_level=${level}
 }
 
-function warning() {
-    log "WARN" "${@}"
+function logging::log::warning() {
+    logging::log "WARN" "${@}"
 }
 
-function error() {
-    log "ERROR" "${@}"
+function logging::log::error() {
+    logging::log "ERROR" "${@}"
 }
 
-function info() {
-    log "INFO" "${@}"
+function logging::log::info() {
+    logging::log "INFO" "${@}"
 }
 
-function debug() {
-    log "DEBUG" "${@}"
+function logging::log::debug() {
+    logging::log "DEBUG" "${@}"
 }
 
-function log() {
+function logging::log() {
     local log_priority=${1}
     local log_message=${2}
 
     # check if level exists
-    if ! map_contains_key levels "${log_priority}"; then
+    if ! containers::map::contains_key levels "${log_priority}"; then
         return 1
     fi
 
@@ -50,6 +50,6 @@ function log() {
 
     # log here
     local color=${colors[${log_priority}]}
-    printf "%-33s" "$(${color} "$(bold "[${log_priority}]:")")"
-    printf '%s\n' "$(${color} "${log_message}")"
+    printf "%-33s" "$("logging::color::${color}" "$("logging::color::bold" "[${log_priority}]:")")"
+    printf '%s\n' "$("logging::color::${color}" "${log_message}")"
 }

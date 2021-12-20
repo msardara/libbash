@@ -11,7 +11,7 @@
 #  if map_contains_element "themap" "a"; then
 #    ...
 ##############################################
-function map_contains_key() {
+function containers::map::contains_key() {
     local -n map_ref=${1}
     local key=${2}
 
