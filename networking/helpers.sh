@@ -6,11 +6,11 @@ function networking::helpers::get_interface_address() {
 }
 
 function networking::helpers::get_main_interface() {
-  run:: ip route get 8.8.8.8 | awk '{print $5}'
+  process::run ip route get 8.8.8.8 | awk '{print $5}'
 }
 
 function networking::helpers::get_default_interface_address() {
-  local IFACE=$(get-main-interface)
-  get-interface-address "${IFACE}"
+  local IFACE=$(networking::helpers::get_main_interface)
+  networking::helpers::get_interface_address "${IFACE}"
 }
 
